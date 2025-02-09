@@ -1,0 +1,18 @@
+Getting Started
+Before diving into the examples, here's what you need to run LLMs locally:
+
+Docker running on your machine
+Ollama container running with the llama3 model:
+
+# Pull the Ollama container
+docker run --gpus all -d -v ollama_data:/root/.ollama -p 11434:11434 --name ollama ollama/ollama ===> with Gpu
+docker run  all -d -v ollama_data:/root/.ollama -p 11434:11434 --name ollama ollama/ollama ===> without Gpu
+
+
+# Pull the llama3 model
+docker exec -it ollama ollama pull llama3
+
+
+Install-Package Microsoft.Extensions.AI # The base AI library
+Install-Package Microsoft.Extensions.AI.Ollama # Ollama provider implementation
+Install-Package Microsoft.Extensions.Hosting # For building the DI container
